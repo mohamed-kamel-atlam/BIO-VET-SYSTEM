@@ -73,7 +73,7 @@ function createProduct() {
       mode = "create";
       getTotal();
     }
-    
+
     clearData();
   }
 
