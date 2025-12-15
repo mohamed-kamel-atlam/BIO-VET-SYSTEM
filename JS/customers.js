@@ -28,7 +28,7 @@ function addNewProduct() {
 create.addEventListener("click" , createInvoice);
 
 // Check Invoices In localStorage
-let invoices;
+let invoices = [];
 if(localStorage.getItem("invoices")) {
     invoices = JSON.parse(localStorage.getItem("invoices"));
 } else {
@@ -51,6 +51,9 @@ function createInvoice() {
 
     // Save In localStorage
     localStorage.setItem("invoices" , JSON.stringify(invoices));
+
+    // Clear Current Products For Next Invoice
+    currentProducts = [];
 }
 
 // Clear Inputs ===>
@@ -65,7 +68,11 @@ function clearData() {
 // Show Invoices ===>
 let myHtml= "";
 function showInvoices() {
+    // Reset HTML
+    myHtml = "";
     document.querySelector(".invoices").innerHTML = "";
+
+    // Generate Invoices HTML
     for(let i = 0 ; i < invoices.length ; i++) {
         myHtml += `
             <div class="invoices-item">
