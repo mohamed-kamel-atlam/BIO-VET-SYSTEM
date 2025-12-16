@@ -1,103 +1,129 @@
 /* ========== CUSTOMERS DETAILS ========== */
 
 .form div {
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 10px;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
 }
 
 .form input {
-    width: 46%;
+  width: 46%;
 }
 
 .invoice-inputs input {
-    width: 26%;
+  width: 26%;
 }
 
 #add-product {
-    width: 12%;
+  width: 12%;
 }
 
 /* ========== INVOICES ========== */
 
 .invoices {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
 }
 
 .invoices-item {
-    width: 46%;
-    background-color: #fff;
-    color: #111;
-    padding: 10px;
-    margin-bottom: 20px;
-    border-radius: 10px;
+  width: 46%;
+  background-color: #fff;
+  color: #111;
+  padding: 10px;
+  margin-bottom: 20px;
+  border-radius: 10px;
+}
+
+.invoices-header {
+  direction: ltr;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .invoices .logo {
-    display: flex;
-    align-items: center;
-    direction: ltr;
-    text-transform: uppercase;
+  display: flex;
+  align-items: center;
+  direction: ltr;
+  text-transform: uppercase;
 }
 
 .invoices .logo img {
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    border: 2px solid #fff;
-    margin-right: 15px;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  border: 2px solid #fff;
+  margin-right: 15px;
+}
+
+.invoice-buttons {
+  display: flex;
+  gap: 10px;
+}
+
+.invoice-buttons button {
+  padding: 5px 15px;
+  border: none;
+  border-radius: 5px;
+  background-color: #040ea8;
+  color: #fff;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+}
+
+.invoice-buttons button:hover {
+  transform: scale(1.1);
 }
 
 .invoice-customer {
-    margin-bottom: 10px;
+  margin-bottom: 10px;
 }
 
 #invoice-date::before {
-    content: "التاريخ: ";
+  content: "التاريخ: ";
 }
 
 #invoice-name::before {
-    content: "الأسم: ";
+  content: "الأسم: ";
 }
 
 table {
-    width: 100%;
-    margin-bottom: 10px;
-    text-align: center;
-    background-color: #040ea8;
-    color: #fff;
-    border-color: #fff;
+  width: 100%;
+  margin-bottom: 10px;
+  text-align: center;
+  background-color: #040ea8;
+  color: #fff;
+  border-color: #fff;
 }
 
 .monay {
-    display: flex;
-    justify-content: space-between;
-    font-size: clamp(1rem , 1.4vw , 1.5rem);
-    font-weight: 900;
+  display: flex;
+  justify-content: space-between;
+  font-size: clamp(1rem, 1.4vw, 1.5rem);
+  font-weight: 900;
 }
 
 #total::before {
-    content: "المجموع: ";
+  content: "المجموع: ";
 }
 
 .monay div > div {
-    padding-left: 5px;
-    font-size: clamp(1rem , 1.3vw , 1.5rem);
-    font-weight: 500;
+  padding-left: 5px;
+  font-size: clamp(1rem, 1.3vw, 1.5rem);
+  font-weight: 500;
 }
 
 #pay::before {
-    content: "المدفوع: ";
+  content: "المدفوع: ";
 }
 
 #residual::before {
-    content: "المتبقي: ";
+  content: "المتبقي: ";
 }
 
 /* ========== Handle Search input ========== */
 
 .search input {
-    width: 98.4%;
+  width: 98.4%;
 }

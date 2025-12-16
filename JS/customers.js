@@ -12,6 +12,8 @@ let paid = document.getElementById("Paid");
 
 let create = document.getElementById("create");
 
+let editIndex = "";
+
 // Add Product ===>
 let currentProducts = [];
 
@@ -51,7 +53,12 @@ function createInvoice() {
 
   // Check Name & Date Are Full
   if (name.value != "" && date.value != "") {
-    invoices.push(newInvoice);
+    if (create.innerText == "Update") {
+      invoices[editIndex] = newInvoice;
+      create.innerText = "Create";
+    } else {
+      invoices.push(newInvoice);
+    }
     clearData();
     showInvoices();
   }
@@ -88,14 +95,23 @@ function showInvoices() {
     // Create Invoice HTML
     myHtml += `
             <div class="invoices-item">
-                <div class="logo">
-                    <img src="Images/BIO_VET.jpg" alt="logo">
-                    <h2>bio vet</h2>
-                </div>
+                <div class="invoices-header">
+                    <div class="logo">
+                        <img src="Images/logo.jpg" alt="logo">
+                        <h2>bio vet</h2>
+                    </div>
+
+                    <div class="invoice-buttons">
+                        <button onclick="editInvoice(${i})" class="edit-invoice">Edit</button>
+                        <button onclick="deleteInvoice(${i})" class="delete-invoice">Delete</button>
+                    </div>
+                </div> 
+
                 <div class="invoice-customer">
                     <p id="invoice-date">${invoices[i].date}</p>
                     <h3 id="invoice-name">${invoices[i].name}</h3>
                 </div>
+
                 <table border="2">
                     <thead>
                         <tr>
@@ -110,6 +126,7 @@ function showInvoices() {
                         ${getProducts(invoices[i].name)}
                     </tbody>
                 </table>
+
                 <div class="monay">
                     <div id="total">${invoices[i].total_price}</div>
                     <div>
@@ -172,14 +189,23 @@ function searchInvoice(value) {
       if (invoices[i].name.toLowerCase().includes(value.toLowerCase())) {
         invoicesContainer += `
             <div class="invoices-item">
-                <div class="logo">
-                    <img src="Images/BIO_VET.jpg" alt="logo">
-                    <h2>bio vet</h2>
-                </div>
+                <div class="invoices-header">
+                    <div class="logo">
+                        <img src="Images/logo.jpg" alt="logo">
+                        <h2>bio vet</h2>
+                    </div>
+
+                    <div class="invoice-buttons">
+                        <button onclick="editInvoice(${i})" class="edit-invoice">Edit</button>
+                        <button onclick="deleteInvoice(${i})" class="delete-invoice">Delete</button>
+                    </div>
+                </div> 
+
                 <div class="invoice-customer">
                     <p id="invoice-date">${invoices[i].date}</p>
                     <h3 id="invoice-name">${invoices[i].name}</h3>
                 </div>
+
                 <table border="2">
                     <thead>
                         <tr>
@@ -194,6 +220,7 @@ function searchInvoice(value) {
                         ${getProducts(invoices[i].name)}
                     </tbody>
                 </table>
+
                 <div class="monay">
                     <div id="total">${invoices[i].total_price}</div>
                     <div>
@@ -209,14 +236,23 @@ function searchInvoice(value) {
       if (invoices[i].date.includes(value)) {
         invoicesContainer += `
             <div class="invoices-item">
-                <div class="logo">
-                    <img src="Images/BIO_VET.jpg" alt="logo">
-                    <h2>bio vet</h2>
+                <div class="invoices-header">
+                    <div class="logo">
+                        <img src="Images/logo.jpg" alt="logo">
+                        <h2>bio vet</h2>
+                    </div>
+
+                    <div class="invoice-buttons">
+                        <button onclick="editInvoice(${i})" class="edit-invoice">Edit</button>
+                        <button onclick="deleteInvoice(${i})" class="delete-invoice">Delete</button>
+                    </div>
                 </div>
+
                 <div class="invoice-customer">
                     <p id="invoice-date">${invoices[i].date}</p>
                     <h3 id="invoice-name">${invoices[i].name}</h3>
                 </div>
+
                 <table border="2">
                     <thead>
                         <tr>
@@ -231,6 +267,7 @@ function searchInvoice(value) {
                         ${getProducts(invoices[i].name)}
                     </tbody>
                 </table>
+                
                 <div class="monay">
                     <div id="total">${invoices[i].total_price}</div>
                     <div>
@@ -244,6 +281,40 @@ function searchInvoice(value) {
     }
     document.querySelector(".invoices").innerHTML = invoicesContainer;
   }
+}
+
+// Edit Invoices
+function editInvoice(index) {
+  // Get Invoice From Array
+  let invoice = invoices[index];
+
+  // Fill Inputs With Current Invoice Data
+  name.value = invoice.name;
+  date.value = invoice.date;
+  totalPrice.value = invoice.total_price;
+  paid.value = invoice.paid;
+  currentProducts = invoice.products;
+
+  // update create button
+  create.innerText = "Update";
+  
+  // Set editIndex
+  editIndex = index;
+
+  // Scroll To Top
+  window.scrollTo({ top: 0, behavior: "smooth" });
+}
+
+// Delete Invoices
+function deleteInvoice(index) {
+  // Delete Invoice From Array
+  invoices.splice(index, 1);
+
+  // Save In localStorage
+  localStorage.setItem("invoices", JSON.stringify(invoices));
+
+  // Show Invoices After Delete
+  showInvoices();
 }
 
 showInvoices();
