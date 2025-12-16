@@ -97,7 +97,7 @@ function showInvoices() {
             <div class="invoices-item">
                 <div class="invoices-header">
                     <div class="logo">
-                        <img src="Images/logo.jpg" alt="logo">
+                        <img src="/assets/images/logo.jpg" alt="logo">
                         <h2>bio vet</h2>
                     </div>
 
@@ -191,7 +191,7 @@ function searchInvoice(value) {
             <div class="invoices-item">
                 <div class="invoices-header">
                     <div class="logo">
-                        <img src="Images/logo.jpg" alt="logo">
+                        <img src="/assets/images/logo.jpg" alt="logo">
                         <h2>bio vet</h2>
                     </div>
 
@@ -238,7 +238,7 @@ function searchInvoice(value) {
             <div class="invoices-item">
                 <div class="invoices-header">
                     <div class="logo">
-                        <img src="Images/logo.jpg" alt="logo">
+                        <img src="/assets/images/logo.jpg" alt="logo">
                         <h2>bio vet</h2>
                     </div>
 
