@@ -1,0 +1,17 @@
+# BIO VET - Robots.txt
+# This file tells search engines how to crawl the website
+
+# Allow all user agents
+User-agent: *
+Allow: /
+
+# Disallow admin or private directories (if any)
+Disallow: /admin/
+Disallow: /private/
+Disallow: /api/
+
+# Specify sitemap location
+Sitemap: https://www.biovet.com/sitemap.xml
+
+# Crawl delay (optional - set to reasonable value)
+Crawl-delay: 1
