@@ -6,14 +6,16 @@
     <title>BIO VET | Customers</title>
 
     <!-- Icon -->
-    <link rel="icon" href="Images/BIO_VET.jpg">
+    <link rel="icon" href="Images/BIO_VET.jpg" />
 
     <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css">
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css" />
 
     <!-- CSS File -->
     <link rel="stylesheet" href="CSS/style.css" />
-    <link rel="stylesheet" href="CSS/customers.css">
+    <link rel="stylesheet" href="CSS/customers.css" />
   </head>
   <body>
     <!-- Change Page -->
@@ -25,62 +27,71 @@
     </div>
 
     <main class="container">
-        <!-- HEADER -->
-        <header>
-            <h1>bio vet</h1>
-            <p>customers management system</p>
-        </header>
+      <!-- HEADER -->
+      <header>
+        <h1>bio vet</h1>
+        <p>customers management system</p>
+      </header>
 
-        <!-- CUSTOMERS DETAILS -->
-        <section class="form">
-            <!-- NAME & DATE -->
-            <div>
-                <input type="text" placeholder="Name..." id="name">
-                <input type="date" id="date">
-            </div>
+      <!-- CUSTOMERS DETAILS -->
+      <section class="form">
+        <!-- NAME & DATE -->
+        <div>
+          <input type="text" placeholder="Name..." id="name" />
+          <input type="date" id="date" />
+        </div>
 
-            <!-- INVOICE DETAILS -->
-            <div class="invoice-inputs">
-                <input type="text" placeholder="Product Name..." id="product">
-                <input type="number" placeholder="Count..." id="count">
-                <input type="number" placeholder="Price..." id="price">
-                <button id="add-product">add</button>
-            </div>
+        <!-- INVOICE DETAILS -->
+        <div class="invoice-inputs">
+          <input type="text" placeholder="Product Name..." id="product" />
+          <input type="number" placeholder="Count..." id="count" />
+          <input type="number" placeholder="Price..." id="price" />
+          <button id="add-product">add</button>
+        </div>
 
-            <!-- Total Price & Paid -->
-            <div class="total-price">
-              <input type="number" placeholder="Total Price..." id="total-price">
-              <input type="number" placeholder="Paid..." id="Paid">
-            </div>
+        <!-- Total Price & Paid -->
+        <div class="total-price">
+          <input type="number" placeholder="Total Price..." id="total-price" />
+          <input type="number" placeholder="Paid..." id="Paid" />
+        </div>
 
-            <button id="create">create</button>
-        </section>
+        <button id="create">create</button>
+      </section>
 
-        <!-- OUTPUT INVOICE -->
-        <section class="output">
-            <!-- SEARCH -->
-          <div class="search">
-            <input type="text" placeholder="Search..." id="search">
-            <div class="search-buttons">
-              <button class="search-btn" id="by-title">Search By Title</button>
-              <button class="search-btn" id="by-price">Search By Price</button>
-            </div>
+      <!-- OUTPUT INVOICE -->
+      <section class="output">
+        <!-- SEARCH -->
+        <div class="search">
+          <input
+            onkeyup="searchInvoice(this.value)"
+            type="text"
+            placeholder="Search..."
+            id="search" />
+
+          <!-- Search Buttons -->
+          <div class="search-buttons">
+            <button
+              onclick="getSearchMode(this.id)"
+              class="search-btn"
+              id="by-name">
+              Search By Name
+            </button>
+            <button
+              onclick="getSearchMode(this.id)"
+              class="search-btn"
+              id="by-date">
+              Search By Date
+            </button>
           </div>
+        </div>
 
-          <!-- DELETE ALL -->
-          <div id="delete-all">
-
-          </div>
-
-          <!-- INVOICES -->
-          <div class="invoices" dir="rtl">
-            
-          </div>
-        </section>
+        <!-- INVOICES -->
+        <div class="invoices" dir="rtl"></div>
+      </section>
     </main>
 
     <!-- JS FILE -->
-     <script src="JS/main.js"></script>
+    <script src="JS/main.js"></script>
     <script src="JS/customers.js"></script>
   </body>
 </html>
