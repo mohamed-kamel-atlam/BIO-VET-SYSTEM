@@ -97,6 +97,10 @@ table {
   border-color: #fff;
 }
 
+table tbody {
+  text-transform: capitalize;
+}
+
 .monay {
   display: flex;
   justify-content: space-between;
